@@ -1,92 +1,91 @@
 package project2;
 
 public class Person {
-	private String address;
-	private String city;
-	private String firstName;
-	private String lastName;
-	private String phone;
-	private String state;
-	private String zip; 
 
-	public Person(String aFirstName, String aLastName, String anAddress, String aCity, String aState, String aZip, String aPhone){
-		firstName = aFirstName;
-		lastName = aLastName;
-		address = anAddress;
-		city = aCity;
-		state = aState;
-		zip = aZip;
-		phone = aPhone;
-	}
-	
-	public String toString(){
-		String result="";
-		
-		result += "Name: " + firstName + " " + lastName + "\n";
-		result += "Phone: " + phone + "\n\n";
-		result += "Address\n" ;
-		result += address + "\n";
-		result += city + ", " + state + ", " + zip + "\n";
+    private String address;
+    private String city;
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String state;
+    private String zip;
 
-		
-		return result;
-	}
+    public Person(String aFirstName, String aLastName, String anAddress, String aCity, String aState, String aZip, String aPhone) {
+        firstName = aFirstName;
+        lastName = aLastName;
+        address = anAddress;
+        city = aCity;
+        state = aState;
+        zip = aZip;
+        phone = aPhone;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public String toString() {
+        String result = "";
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+        result += "Name: " + firstName + " " + lastName + "\n";
+        result += "Phone: " + phone + "\n\n";
+        result += "Address\n";
+        result += address + "\n";
+        result += city + ", " + state + ", " + zip + "\n";
 
-	public String getCity() {
-		return city;
-	}
+        return result;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getPhone() {
-		return phone;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getState() {
-		return state;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setState(String state) {
-		this.state = state;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public String getZip() {
-		return zip;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
-	
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
 
 }

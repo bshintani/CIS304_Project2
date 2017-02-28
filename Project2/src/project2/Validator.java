@@ -2,10 +2,6 @@ package project2;
 
 public class Validator {
 
-    //TODO - CODE THE VALIDATOR
-    //add the method that will validate all the input
-    //collected from the form
-    //static variable to hold any error that occurs
     private static String errorMessage = "";
 
     public static String getOrderID(String anID) {
@@ -23,28 +19,28 @@ public class Validator {
         }
         return aFirstName;
     }
-    
+
     public static String getLastName(String aLastName) {
         if (aLastName.length() == 0) {
             errorMessage += "Last Name cannot be blank\n";
         }
         return aLastName;
     }
-    
+
     public static String getAddress(String anAddress) {
         if (anAddress.length() == 0) {
             errorMessage += "Address cannot be blank\n";
         }
         return anAddress;
     }
-    
+
     public static String getCity(String aCity) {
         if (aCity.length() == 0) {
             errorMessage += "City cannot be blank\n";
         }
         return aCity;
     }
-    
+
     public static String getZip(String aZip) {
         try {
             if (aZip.length() == 5) {
@@ -62,7 +58,7 @@ public class Validator {
         }
         return aZip;
     }
-    
+
     public static String getState(String aState) {
         try {
             if (aState.length() == 2) {
@@ -80,7 +76,7 @@ public class Validator {
         }
         return aState;
     }
-    
+
     public static String getPhone(String aPhone) {
         try {
             if (aPhone.length() == 10) {
@@ -98,7 +94,7 @@ public class Validator {
         }
         return aPhone;
     }
-    
+
     //First, check that the input is a length of 6.
     //Second, check that the first two characters are letters
     //Lastly, check that the last four characters are numbers
@@ -125,7 +121,7 @@ public class Validator {
         }
         return aMembership;
     }
-    
+
     //Check whether the quantity input is an Integer then check that it is
     //not less than 0
     public static String getQuantity(String aQty) {
@@ -139,7 +135,7 @@ public class Validator {
         }
         return aQty;
     }
-    
+
     //method to return the error message	
     public static String getError() {
         return errorMessage;

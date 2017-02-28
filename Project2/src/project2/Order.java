@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Order {
-    //class variables
 
+    //class variables
     private String orderID;
     private Customer orderCustomer;
     private Clerk orderClerk;
@@ -49,12 +49,7 @@ public class Order {
 
         productCount++;
 
-        //TODO 
-        //Write the code to create a new line item
-        //based on the variables aProduct and aQty that are passed
-        //add that line item to the LineItems arraylist lineItems
         this.lineItems.add(new LineItem(aProduct, aQty));
-        System.out.println(productCount);
 
     }
 
@@ -101,7 +96,6 @@ public class Order {
 //
 //        return result;
 //    }
-
     //Returns the number of items sold
     public int getNumberItemsSold() {
         int totalQty = 0;
@@ -123,7 +117,7 @@ public class Order {
     }
 
     public String getTotal() {
-        String result = nf.format(total);    
+        String result = nf.format(total);
         return result;
     }
 
@@ -134,7 +128,7 @@ public class Order {
     public double getLineTotal(int iLine) {
         //Select the LineItem from the ArrayList
         LineItem selectedItem = lineItems.get(iLine);
-        
+
         //Get the total for that item
         return selectedItem.getJvzLineTotal();
     }

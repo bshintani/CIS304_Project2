@@ -50,6 +50,7 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
     private JButton btnList;
     private JButton btnFind;
     private JButton btnDelete;
+    private JButton btnUpdate;
 
     private JavaZon jz;
     private Menu menu;
@@ -114,11 +115,16 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             btnReset.setText("Reset");
             btnReset.addActionListener(this);
             
+            btnUpdate = new JButton();
+            jPanel1.add(btnUpdate, new GridBagConstraints(7, 17, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            btnUpdate.setText("Update");
+            btnUpdate.addActionListener(this);
+
             btnImport = new JButton();
             jPanel1.add(btnImport, new GridBagConstraints(4, 18, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             btnImport.setText("Import");
             btnImport.addActionListener(this);
-            
+
             btnExport = new JButton();
             jPanel1.add(btnExport, new GridBagConstraints(5, 18, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             btnExport.setText("Export");
@@ -131,94 +137,94 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             txtLastName = new JTextField();
             jPanel1.add(txtLastName, new GridBagConstraints(5, 3, 2, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtLastName.setPreferredSize(new java.awt.Dimension(175, 24));
-            
+
             txtMemberShip = new JTextField();
             jPanel1.add(txtMemberShip, new GridBagConstraints(2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtMemberShip.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtStreet = new JTextField();
             jPanel1.add(txtStreet, new GridBagConstraints(2, 5, 2, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtStreet.setPreferredSize(new java.awt.Dimension(175, 24));
-            
+
             txtCity = new JTextField();
             jPanel1.add(txtCity, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtCity.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtPhone = new JTextField();
             jPanel1.add(txtPhone, new GridBagConstraints(5, 4, 2, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtPhone.setPreferredSize(new java.awt.Dimension(175, 24));
-            
+
             txtState = new JTextField();
             jPanel1.add(txtState, new GridBagConstraints(4, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtState.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtZip = new JTextField();
             jPanel1.add(txtZip, new GridBagConstraints(6, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtZip.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtQty1 = new JTextField();
             jPanel1.add(txtQty1, new GridBagConstraints(3, 8, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtQty1.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtQty2 = new JTextField();
             jPanel1.add(txtQty2, new GridBagConstraints(3, 9, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtQty2.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtQty3 = new JTextField();
             jPanel1.add(txtQty3, new GridBagConstraints(3, 10, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtQty3.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtPrice1 = new JTextField();
             jPanel1.add(txtPrice1, new GridBagConstraints(4, 8, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtPrice1.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtPrice2 = new JTextField();
             jPanel1.add(txtPrice2, new GridBagConstraints(4, 9, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtPrice2.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtPrice3 = new JTextField();
             jPanel1.add(txtPrice3, new GridBagConstraints(4, 10, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtPrice3.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtLineTotal1 = new JTextField();
             jPanel1.add(txtLineTotal1, new GridBagConstraints(5, 8, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtLineTotal1.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtLineTotal2 = new JTextField();
             jPanel1.add(txtLineTotal2, new GridBagConstraints(5, 9, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtLineTotal2.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtLineTotal3 = new JTextField();
             jPanel1.add(txtLineTotal3, new GridBagConstraints(5, 10, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtLineTotal3.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtSubtotal = new JTextField();
             jPanel1.add(txtSubtotal, new GridBagConstraints(5, 11, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtSubtotal.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtTax = new JTextField();
             jPanel1.add(txtTax, new GridBagConstraints(5, 12, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtTax.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             txtTotal = new JTextField();
             jPanel1.add(txtTotal, new GridBagConstraints(5, 13, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             txtTotal.setPreferredSize(new java.awt.Dimension(110, 24));
-            
+
             cboItem1 = new JComboBox(menu.getMenuDescriptions());
             jPanel1.add(cboItem1, new GridBagConstraints(2, 8, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             cboItem1.setSelectedIndex(-1);
             cboItem1.addItemListener(this);
-            
+
             cboItem2 = new JComboBox(menu.getMenuDescriptions());
             jPanel1.add(cboItem2, new GridBagConstraints(2, 9, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             cboItem2.setSelectedIndex(-1);
             cboItem2.addItemListener(this);
-            
+
             cboItem3 = new JComboBox(menu.getMenuDescriptions());
             jPanel1.add(cboItem3, new GridBagConstraints(2, 10, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             cboItem3.setSelectedIndex(-1);
             cboItem3.addItemListener(this);
-            
+
             jLabel1 = new JLabel();
             jPanel1.add(jLabel1, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel1.setText("Order ID:");
@@ -230,7 +236,7 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             jLabel3 = new JLabel();
             jPanel1.add(jLabel3, new GridBagConstraints(4, 3, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel3.setText("Last Name:");
-            
+
             jLabel4 = new JLabel();
             jPanel1.add(jLabel4, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel4.setText("Membership:");
@@ -238,55 +244,55 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             jLabel5 = new JLabel();
             jPanel1.add(jLabel5, new GridBagConstraints(1, 5, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel5.setText("Street:");
-            
+
             jLabel6 = new JLabel();
             jPanel1.add(jLabel6, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel6.setText("City:");
-            
+
             jLabel7 = new JLabel();
             jPanel1.add(jLabel7, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel7.setText("Phone:");
-            
+
             jLabel8 = new JLabel();
             jPanel1.add(jLabel8, new GridBagConstraints(3, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel8.setText("State:");
-            
+
             jLabel9 = new JLabel();
             jPanel1.add(jLabel9, new GridBagConstraints(5, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel9.setText("Zip:");
-            
+
             jLabel10 = new JLabel();
             jPanel1.add(jLabel10, new GridBagConstraints(2, 7, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel10.setText("Product:");
-            
+
             jLabel11 = new JLabel();
             jPanel1.add(jLabel11, new GridBagConstraints(3, 7, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel11.setText("Quantity:");
-            
+
             jLabel12 = new JLabel();
             jPanel1.add(jLabel12, new GridBagConstraints(4, 7, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel12.setText("Price:");
-            
+
             jLabel14 = new JLabel();
             jPanel1.add(jLabel14, new GridBagConstraints(5, 7, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel14.setText("LineTotal:");
-            
+
             jLabel15 = new JLabel();
             jPanel1.add(jLabel15, new GridBagConstraints(4, 11, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel15.setText("Subtotal:");
-            
+
             jLabel16 = new JLabel();
             jPanel1.add(jLabel16, new GridBagConstraints(4, 12, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel16.setText("Tax:");
-            
+
             jLabel17 = new JLabel();
             jPanel1.add(jLabel17, new GridBagConstraints(4, 13, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel17.setText("Total:");
-            
+
             jLabel18 = new JLabel();
             jPanel1.add(jLabel18, new GridBagConstraints(3, 18, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
             jLabel18.setText("File Options");
-            
+
             jLabel13 = new JLabel();
             jPanel1.add(jLabel13, new GridBagConstraints(2, 0, 3, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
             jLabel13.setText("Welcome to JAVAZON III");
@@ -313,6 +319,8 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
         //call resetForm
         if (e.getSource() == btnAdd) {
             addOrder();
+        } else if (e.getSource() == btnClear) {
+            clearOrders();
         } else if (e.getSource() == btnDelete) {
             deleteOrder();
         } else if (e.getSource() == btnFind) {
@@ -321,7 +329,9 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             printOrders();
         } else if (e.getSource() == btnReset) {
             resetForm();
-        }
+        } //else if (e.getSource() == btnUpdate) { 
+            //addOrder();
+        //}
 
     }
 
@@ -333,8 +343,7 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
         if (o == cboItem1) {
             if (cboItem1.getSelectedIndex() != -1) {
                 txtPrice1.setText(menu.getPrice(cboItem1.getSelectedIndex()));
-                
-                
+
             }
         } else if (o == cboItem2) {
             if (cboItem2.getSelectedIndex() != -1) {
@@ -351,23 +360,11 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
     }
 
     private void addOrder() {
-        //CREATE VARIABLES TO HOLD INPUT
-        //TODO
-        //PASS THE INPUT TO THE VALIDATOR\
-        //THE ONLY VALIDATION IN THIS PROJECT
-        //IS THAT STRING VALUES ARE NOT BLANK
-        //AND NUMERICAL VALUES ARE THE CORRECT TYPE
-        //FOR EXAMPLE QUANTITY SHOULD BE INTEGER
-        //PRICE SHOULD BE DOUBLE
-        //EVERYTHING ELSE IS OK
 
         Validator.clearError(); //before we start processing we clear any errors
 
         String orderID = Validator.getOrderID(txtOrderID.getText());
         String firstName = Validator.getFirstName(txtFirstName.getText());
-
-        //add the other variables to hold your values from the validator in here
-        //see below what variables you will need to create a customer object and an order object
         String lastName = Validator.getLastName(txtLastName.getText());
         String street = Validator.getAddress(txtStreet.getText());
         String city = Validator.getCity(txtCity.getText());
@@ -404,33 +401,27 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
                 Product product1 = menu.getMenu()[this.cboItem1.getSelectedIndex()];
                 order.setOrderProduct(product1, Integer.parseInt(txtQty1.getText()));
                 this.txtLineTotal1.setText(String.valueOf(order.getLineTotal(0))); //Need to numberformat these outputs
-            } if (this.cboItem2.getSelectedIndex() != -1) {
+            }
+            if (this.cboItem2.getSelectedIndex() != -1) {
                 Product product2 = menu.getMenu()[this.cboItem2.getSelectedIndex()];
                 order.setOrderProduct(product2, Integer.parseInt(txtQty2.getText()));
                 this.txtLineTotal2.setText(String.valueOf(order.getLineTotal(1)));
-            } if (this.cboItem3.getSelectedIndex() != -1) {
+            }
+            if (this.cboItem3.getSelectedIndex() != -1) {
                 Product product3 = menu.getMenu()[this.cboItem3.getSelectedIndex()];
                 order.setOrderProduct(product3, Integer.parseInt(txtQty3.getText()));
                 this.txtLineTotal3.setText(String.valueOf(order.getLineTotal(2)));
             }
-            
+
             //do the same for the other 2 comboboxes
             jz.addOrder(order);
             jz.setClerk(orderID);
             jz.processOrder(orderID);
 
-            //TODO
-            //INSTEAD OF GET RECEIPT YOU NEED TO CREATE METHODS THAT
-            //WILL RETURN INDIVIDUAL VALUES
-            //FOR EACH LINE ITEM RETRIEVE THE TOTALS
-            //FOR THE WHOLE ORDER RETRIEVE THE SUBTOTAL, TAX, TOTAL
-            //DISPLAY THESE RESULTS IN THE APPROPRIATE BOXES INSTEAD OF THE JOPTIONPANE BOX
-            //JOptionPane.showMessageDialog(null, jz.getReceipt(orderID));
-            
             this.txtSubtotal.setText(order.getSubTotal());
             this.txtTax.setText(order.getTax());
             this.txtTotal.setText(order.getTotal());
-            
+
             JOptionPane.showMessageDialog(null, "Order " + orderID + " was Saved");
         }
 
@@ -457,6 +448,12 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             txtFirstName.setText(foundCustomer.getFirstName());
             txtLastName.setText(foundCustomer.getLastName());
             txtStreet.setText(foundCustomer.getAddress());
+            txtMemberShip.setText(foundCustomer.getMembership());
+            txtPhone.setText(foundCustomer.getPhone());
+            txtCity.setText(foundCustomer.getCity());
+            txtState.setText(foundCustomer.getState());
+            txtZip.setText(foundCustomer.getZip());
+            //this.cboItem1.setSelectedItem(); where is the cboItem value being stored for foundOrder?
             String city = txtCity.getText();
             String state = txtState.getText();
             String zip = txtZip.getText();
@@ -464,7 +461,7 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             String membership = txtMemberShip.getText();
 
             //Example how to set the value of a combobox
-            this.cboItem3.setSelectedItem("VB");
+            //this.cboItem3.setSelectedItem("VB");
         } else {
 
             JOptionPane.showMessageDialog(null, "Order Not Found");;
@@ -488,9 +485,7 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
     }
 
     public void resetForm() {
-        //TODO
-        //ADD code here to reset the form to a blank state
-
+       
         txtOrderID.setText("");
         txtFirstName.setText("");
         txtLastName.setText("");
@@ -509,6 +504,9 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
         txtLineTotal1.setText("");
         txtLineTotal2.setText("");
         txtLineTotal3.setText("");
+        txtSubtotal.setText("");
+        txtTax.setText("");
+        txtTotal.setText("");
 
         try {
 
