@@ -131,7 +131,7 @@ public class Validator {
                 errorMessage += "Quantity cannot be less than 0\n";
             }
         } catch (Exception ex) {
-            errorMessage += "Invalid input. Must be an integer value\n";
+            errorMessage += "Quantity must be a whole integer value\n";
         }
         return aQty;
     }

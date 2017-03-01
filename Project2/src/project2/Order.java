@@ -52,6 +52,11 @@ public class Order {
         this.lineItems.add(new LineItem(aProduct, aQty));
 
     }
+    
+    //make method to access arraylist
+    public LineItem getLineItem(int anID) {
+        return this.lineItems.get(anID);
+    }
 
     public String getOrderID() {
         return orderID;
@@ -126,10 +131,10 @@ public class Order {
     }
 
     public double getLineTotal(int iLine) {
-        //Select the LineItem from the ArrayList
+        //Select the LineItem from the ArrayList    
         LineItem selectedItem = lineItems.get(iLine);
 
-        //Get the total for that item
+        //Get the total for that item   
         return selectedItem.getJvzLineTotal();
     }
 

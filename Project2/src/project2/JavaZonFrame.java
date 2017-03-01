@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.text.NumberFormat;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -54,6 +55,7 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
 
     private JavaZon jz;
     private Menu menu;
+    NumberFormat nf = NumberFormat.getCurrencyInstance();
 
     public JavaZonFrame() {
         try {
@@ -329,9 +331,9 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             printOrders();
         } else if (e.getSource() == btnReset) {
             resetForm();
-        } //else if (e.getSource() == btnUpdate) { 
-            //addOrder();
-        //}
+        } else if (e.getSource() == btnUpdate) { 
+            updateOrder();
+        }
 
     }
 
@@ -378,9 +380,9 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
         //uncomment the Validator.getQuantity... line
         if (this.cboItem1.getSelectedIndex() != -1) {
             Validator.getQuantity(txtQty1.getText());
-        } else if (this.cboItem2.getSelectedIndex() != -1) {
+        } if (this.cboItem2.getSelectedIndex() != -1) {
             Validator.getQuantity(txtQty2.getText());
-        } else if (this.cboItem3.getSelectedIndex() != -1) {
+        } if (this.cboItem3.getSelectedIndex() != -1) {
             Validator.getQuantity(txtQty3.getText());
         }
 
@@ -400,17 +402,17 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             if (this.cboItem1.getSelectedIndex() != -1) {
                 Product product1 = menu.getMenu()[this.cboItem1.getSelectedIndex()];
                 order.setOrderProduct(product1, Integer.parseInt(txtQty1.getText()));
-                this.txtLineTotal1.setText(String.valueOf(order.getLineTotal(0))); //Need to numberformat these outputs
+                this.txtLineTotal1.setText(nf.format(order.getLineTotal(0))); //Need to numberformat these outputs
             }
             if (this.cboItem2.getSelectedIndex() != -1) {
                 Product product2 = menu.getMenu()[this.cboItem2.getSelectedIndex()];
                 order.setOrderProduct(product2, Integer.parseInt(txtQty2.getText()));
-                this.txtLineTotal2.setText(String.valueOf(order.getLineTotal(1)));
+                this.txtLineTotal2.setText(nf.format(order.getLineTotal(1)));
             }
             if (this.cboItem3.getSelectedIndex() != -1) {
                 Product product3 = menu.getMenu()[this.cboItem3.getSelectedIndex()];
                 order.setOrderProduct(product3, Integer.parseInt(txtQty3.getText()));
-                this.txtLineTotal3.setText(String.valueOf(order.getLineTotal(2)));
+                this.txtLineTotal3.setText(nf.format(order.getLineTotal(2)));
             }
 
             //do the same for the other 2 comboboxes
@@ -425,6 +427,65 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             JOptionPane.showMessageDialog(null, "Order " + orderID + " was Saved");
         }
 
+    }
+    
+    private void updateOrder() {
+        Validator.clearError();
+
+        String orderID = Validator.getOrderID(txtOrderID.getText());
+        String firstName = Validator.getFirstName(txtFirstName.getText());
+        String lastName = Validator.getLastName(txtLastName.getText());
+        String street = Validator.getAddress(txtStreet.getText());
+        String city = Validator.getCity(txtCity.getText());
+        String zip = Validator.getZip(txtZip.getText());
+        String state = Validator.getState(txtState.getText());
+        String phone = Validator.getPhone(txtPhone.getText());
+        String membership = Validator.getMembership(txtMemberShip.getText());
+
+        if (this.cboItem1.getSelectedIndex() != -1) {
+            Validator.getQuantity(txtQty1.getText());
+        } else if (this.cboItem2.getSelectedIndex() != -1) {
+            Validator.getQuantity(txtQty2.getText());
+        } else if (this.cboItem3.getSelectedIndex() != -1) {
+            Validator.getQuantity(txtQty3.getText());
+        }
+
+        if (Validator.getError().length() != 0) {
+            JOptionPane.showMessageDialog(null, "An Error Occured:\n\n" + Validator.getError());
+
+        } else {
+            Customer customer = new Customer(firstName, lastName, street, city,
+                    state, zip, phone, membership);
+
+            Order order = new Order(orderID);
+            order.setOrderCustomer(customer);
+
+            if (this.cboItem1.getSelectedIndex() != -1) {
+                Product product1 = menu.getMenu()[this.cboItem1.getSelectedIndex()];
+                order.setOrderProduct(product1, Integer.parseInt(txtQty1.getText()));
+                this.txtLineTotal1.setText(nf.format(order.getLineTotal(0))); //Need to numberformat these outputs
+            }
+            if (this.cboItem2.getSelectedIndex() != -1) {
+                Product product2 = menu.getMenu()[this.cboItem2.getSelectedIndex()];
+                order.setOrderProduct(product2, Integer.parseInt(txtQty2.getText()));
+                this.txtLineTotal2.setText(nf.format(order.getLineTotal(1)));
+            }
+            if (this.cboItem3.getSelectedIndex() != -1) {
+                Product product3 = menu.getMenu()[this.cboItem3.getSelectedIndex()];
+                order.setOrderProduct(product3, Integer.parseInt(txtQty3.getText()));
+                this.txtLineTotal3.setText(nf.format(order.getLineTotal(2)));
+            }
+
+            jz.addOrder(order);
+            jz.setClerk(orderID);
+            jz.processOrder(orderID);
+
+            this.txtSubtotal.setText(order.getSubTotal());
+            this.txtTax.setText(order.getTax());
+            this.txtTotal.setText(order.getTotal());
+
+            JOptionPane.showMessageDialog(null, "Order " + orderID + " was Updated");
+        }
     }
 
     private void deleteOrder() {
@@ -453,7 +514,18 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             txtCity.setText(foundCustomer.getCity());
             txtState.setText(foundCustomer.getState());
             txtZip.setText(foundCustomer.getZip());
-            //this.cboItem1.setSelectedItem(); where is the cboItem value being stored for foundOrder?
+            this.cboItem1.setSelectedItem(foundOrder.getLineItem(0).getJvzProduct().getDescription());
+            this.cboItem2.setSelectedItem(foundOrder.getLineItem(1).getJvzProduct().getDescription());
+            this.cboItem3.setSelectedItem(foundOrder.getLineItem(2).getJvzProduct().getDescription());
+            txtQty1.setText(String.valueOf(foundOrder.getLineItem(0).getJvzQuantity()));
+            txtQty2.setText(String.valueOf(foundOrder.getLineItem(1).getJvzQuantity()));
+            txtQty3.setText(String.valueOf(foundOrder.getLineItem(2).getJvzQuantity()));
+            txtLineTotal1.setText(nf.format(foundOrder.getLineTotal(0)));
+            txtLineTotal2.setText(nf.format(foundOrder.getLineTotal(1)));
+            txtLineTotal3.setText(nf.format(foundOrder.getLineTotal(2)));
+            txtSubtotal.setText(foundOrder.getSubTotal());
+            txtTax.setText(foundOrder.getTax());
+            txtTotal.setText(foundOrder.getTotal());
             String city = txtCity.getText();
             String state = txtState.getText();
             String zip = txtZip.getText();
