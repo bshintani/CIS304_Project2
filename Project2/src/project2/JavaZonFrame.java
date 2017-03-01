@@ -23,6 +23,8 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
 
+import java.io.*;
+
 public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, ItemListener {
 
     private JPanel jPanel1;
@@ -313,12 +315,6 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
         //based on the object that trigerred the event
         //call the appropriate method
 
-        //Call addOrder
-        //Call clearOrders
-        //Call deleteOrder
-        //Call findOrder
-        //call printOrders
-        //call resetForm
         if (e.getSource() == btnAdd) {
             addOrder();
         } else if (e.getSource() == btnClear) {
@@ -333,6 +329,10 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
             resetForm();
         } else if (e.getSource() == btnUpdate) { 
             updateOrder();
+        } else if (e.getSource() == btnImport) {
+            
+        } else if (e.getSource() == btnExport) {
+            
         }
 
     }
@@ -486,6 +486,10 @@ public class JavaZonFrame extends javax.swing.JFrame implements ActionListener, 
 
             JOptionPane.showMessageDialog(null, "Order " + orderID + " was Updated");
         }
+    }
+    
+    private void writeFile() {
+        jz.
     }
 
     private void deleteOrder() {
